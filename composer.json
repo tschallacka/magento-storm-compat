@@ -1,0 +1,31 @@
+{
+  "name": "tschallacka/storm-compat",
+  "version": "1.0.0",
+  "description": "This module aims to make Magento database objects compatible with the  Eloquent methods provided by the WinterCMS(based on Laravel) library.",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "MIT"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Tschallacka\\StormCompat\\": ""
+    }
+  },
+  "scripts": {
+    "test" : [
+        "../../../../vendor/bin/phpunit --configuration tests/unit/phpunit.xml --stop-on-failure"
+    ],
+    "integration_setup": [
+        "chmod +x bin/setup.sh && bin/setup.sh"
+    ],
+    "integration" : [
+        "cd ../../../../dev/tests/integration && ../../../vendor/bin/phpunit -c ../../../app/code/Tschallacka/StormCompat/tests/integration/phpunit.xml --stop-on-failure"
+    ]
+}
+}
