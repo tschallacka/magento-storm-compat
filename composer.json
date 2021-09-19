@@ -4,7 +4,8 @@
   "description": "This module aims to make Magento database objects compatible with the  Eloquent methods provided by the WinterCMS(based on Laravel) library.",
   "type": "magento2-module",
   "require": {
-    "magento/framework": "*"
+    "magento/framework": "*",
+    "tschallacka/storm-inherit-relations": "*"
   },
   "license": [
     "MIT"

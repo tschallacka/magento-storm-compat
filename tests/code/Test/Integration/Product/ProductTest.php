@@ -8,9 +8,10 @@ use Magento\TestFramework\Helper\Bootstrap;
 use Magento\TestFramework\ObjectManager;
 use Magento\Framework\Exception\StateException;
 use PHPUnit\Framework\TestCase;
+use Tschallacka\StormCompat\Product\Attributes\AttributeVarchar;
 use Tschallacka\StormCompat\Product\Product;
 use Tschallacka\StormCompat\tests\code\Test\Integration\Product\Fixtures\ProductFixture;
-
+use Tschallacka\StormInheritRelations\Behavior\InheritRelations;
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
@@ -47,8 +48,15 @@ class ProductTest extends TestCase
     public static function modifySimpleProduct()
     {
         //ProductFixture::createProductFixture(self::SIMPLE_PRODUCT_A);
-        $products = Product::all();
+        $x =new Product();
+        $x->save();
+        // TODO model events don't get fired. Research why.
         xdebug_break();
+        $products = Product::limit(1)->withAttributes()->get();
+        //$attribute = new AttributeVarchar();
+        xdebug_break();
+        //$attribute2 = new AttributeVarchar();
+
         $a = 1;
     }
     /**
